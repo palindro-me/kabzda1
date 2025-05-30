@@ -1,12 +1,9 @@
 type PropsType = {
     on: boolean
-    onClick: () => void
+    onChange: (on: boolean) => void
 }
 
-
 export function OnOff(props: PropsType) {
-
-
     console.log('on: ' + props.on);
 
     const onStyle = {
@@ -35,10 +32,9 @@ export function OnOff(props: PropsType) {
         marginLeft: '5px',
         backgroundColor: props.on ? 'green' : 'red'
     };
-
     return <div>
-        <div style={onStyle} onClick={props.onClick}> On</div>
-        <div style={offStyle} onClick={props.onClick}>Off</div>
+        <div style={onStyle} onClick={() => props.onChange(true)}> On</div>
+        <div style={offStyle} onClick={() =>props.onChange(false)}>Off</div>
         <div style={indicatorStyle}></div>
     </div>;
 }

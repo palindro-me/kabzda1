@@ -17,7 +17,7 @@ function App() {
 
     return (
         <div className={'App'}>
-            <OnOff on={switchOn} onClick={() => setSwitchOn(!switchOn)}/>
+            <OnOff on={switchOn} onChange={() => setSwitchOn(!switchOn)}/>
 
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <UncontrolledRating/>
