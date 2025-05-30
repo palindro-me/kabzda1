@@ -1,14 +1,14 @@
 import {useState} from 'react';
 
 type PropsType = {
-    // on: boolean
+    on: boolean
 }
 
 
 export function UncontrolledOnOff(props: PropsType) {
 
     const [on, setOn] = useState(false);
-    console.log('on: ' + on);
+    console.log('props.on: ' + props.on);
 
     const onStyle = {
         width: '30px',

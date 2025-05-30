@@ -1,8 +1,10 @@
 import {useState} from 'react';
 
-type RatingPropsType = {}
+// type RatingPropsType = {
+//
+// }
 
-export function UncontrolledRating(props: RatingPropsType) {
+export function UncontrolledRating() {
     console.log('rating rendered');
 
     const [value, setValue] = useState(0);
