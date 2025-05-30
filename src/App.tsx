@@ -2,7 +2,8 @@ import {Rating, RatingValueType} from './components/Rating/Rating.tsx';
 import {useState} from 'react';
 import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating.tsx';
 import Accordion from './components/Accordion/Accordion.tsx';
-import {OnOff} from './components/OnOff/OnOff.tsx';
+
+import {UncontrolledOnOff} from './components/UncontrolledOnOff/UncontrolledOnOff.tsx';
 
 function App() {
     console.log('App rendered');
@@ -13,11 +14,10 @@ function App() {
     const [switchOn, setSwitchOn] = useState<boolean>(false);
 
 
-
-
     return (
         <div className={'App'}>
-            <OnOff on={switchOn} onChange={() => setSwitchOn(!switchOn)}/>
+            <UncontrolledOnOff onChange={setSwitchOn} />{switchOn.toString()}
+            {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
 
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <UncontrolledRating/>
