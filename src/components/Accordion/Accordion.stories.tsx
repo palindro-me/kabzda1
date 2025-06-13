@@ -1,7 +1,7 @@
 // Replace your-framework with the framework you are using, e.g. react-vite, nextjs, nextjs-vite, etc.
 import Accordion from './Accordion';
 import {useState} from 'react';
-// import {action} from 'storybook/actions';
+import {action} from 'storybook/actions';
 
 // в комментах код для сильных
 
