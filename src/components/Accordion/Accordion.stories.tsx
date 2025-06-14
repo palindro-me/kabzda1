@@ -1,7 +1,7 @@
 // Replace your-framework with the framework you are using, e.g. react-vite, nextjs, nextjs-vite, etc.
 import Accordion from './Accordion';
-import {useState} from 'react';
 import {action} from 'storybook/actions';
+import {useState} from 'react';
 
 // в комментах код для сильных
 
@@ -25,28 +25,37 @@ import {action} from 'storybook/actions';
 //для учебного проекта используем так:
 
 export default {
+    title: 'Accordion',
     component: Accordion
 }
+const callback = action('accordion mode changes')
 
-
-const onChangeCallbackHandler = action('onChange')
-//action - позволяет логировать события (например, клики, изменения и т.п.) в интерфейсе Storybook
-
-export const CollapsedAccordion =() => {
-    return     <Accordion titleValue={'Collapsed Accordion'}
-                       collapsed={true}
-                       onChange={onChangeCallbackHandler}/>
+export const MenuCollapsedMode = () => <Accordion titleValue={'Menu'} collapsed={true} onChange={callback} />
+export const MenuUnCollapsedMode= () => <Accordion titleValue={'Menu'} collapsed={true} onChange={callback} />
+export const ModeChanges = () => {
+    const [value, setValue] = useState<boolean>(true);
+    return <Accordion titleValue={'Users'} collapsed={value} onChange={() => setValue(!value)}/>
 }
 
-export const OpenAccordion =() => {
-    return  <Accordion titleValue={'Opened Accordion'}
-                       collapsed={false}
-                       onChange={() => {}}/>
-}
 
-export const AccordionDemo =() => {
-    const [collapsed, setCollapsed] = useState(false);
-    return  <Accordion titleValue={'Accordion'}
-                       collapsed={collapsed}
-                       onChange={() => {setCollapsed(!collapsed)}}/>
-}
+// const onChangeCallbackHandler = action('onChange')
+// //action - позволяет логировать события (например, клики, изменения и т.п.) в интерфейсе Storybook
+//
+// export const CollapsedAccordion =() => {
+//     return     <Accordion titleValue={'Collapsed Accordion'}
+//                        collapsed={true}
+//                        onChange={onChangeCallbackHandler}/>
+// }
+//
+// export const OpenAccordion =() => {
+//     return  <Accordion titleValue={'Opened Accordion'}
+//                        collapsed={false}
+//                        onChange={() => {}}/>
+// }
+//
+// export const AccordionDemo =() => {
+//     const [collapsed, setCollapsed] = useState(false);
+//     return  <Accordion titleValue={'Accordion'}
+//                        collapsed={collapsed}
+//                        onChange={() => {setCollapsed(!collapsed)}}/>
+// }
